@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    MAVEN_HOST = 'jenkinadmin@172.31.7.215'
+    MAVEN_HOST = 'jenkinadmin@13.201.133.43'
     ANSIBLE_HOST = 'jenkinadmin@13.235.71.158'
     GIT_REPO = 'https://github.com/Jayant-git-debug/CI-CD.git'
     GIT_BRANCH = 'master'
