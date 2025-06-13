@@ -2,8 +2,8 @@ pipeline {
   agent any
 
   environment {
-    MAVEN_HOST = 'jenkinadmin@13.201.133.43'
-    ANSIBLE_HOST = 'jenkinadmin@13.235.71.158'
+    MAVEN_HOST = 'jenkins@3.83.251.89'
+    #ANSIBLE_HOST = 'jenkinadmin@13.235.71.158'
     GIT_REPO = 'https://github.com/Jayant-git-debug/CI-CD.git'
     GIT_BRANCH = 'master'
     APP_DIR = '/home/maven/app'
