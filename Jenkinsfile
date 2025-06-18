@@ -22,7 +22,7 @@ pipeline {
     stage('Trigger Maven Build on Maven Server') {
       steps {
         sh """
-        ssh ${MAVEN_HOST} '
+        ssh -o StrictHostKeyChecking=no ${MAVEN_HOST} '
           rm -rf ${APP_DIR} &&
           git clone -b ${GIT_BRANCH} ${GIT_REPO} ${APP_DIR} &&
           cd ${APP_DIR} &&
