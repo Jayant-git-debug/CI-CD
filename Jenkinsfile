@@ -57,7 +57,7 @@ pipeline {
         ssh ${ANSIBLE_HOST} '
           rm -rf /home/ansibleadmin/deploy &&
           git clone -b ${GIT_BRANCH} ${GIT_REPO} /home/ansibleadmin/deploy &&
-          ~/.local/bin/ansible-playbook /home/ansible/playbooks/deploy/deploy.yml\
+          ~/.local/bin/ansible-playbook /home/ansibleadmin/playbooks/deploy/deploy.yml\
             -e jar_file=/home/ansibleadmin/deployments/${JAR_NAME}'
         """
       }
