@@ -46,7 +46,7 @@ pipeline {
     stage('Copy .jar to Ansible Server') {
       steps {
         sh """
-        scp ${LOCAL_JAR_PATH}${JAR_NAME} ${ANSIBLE_HOST}: /home/ansibleadmin/deployments/${JAR_NAME}
+        scp ${LOCAL_JAR_PATH}${JAR_NAME} ${ANSIBLE_HOST}:/home/ansibleadmin/deployments/${JAR_NAME}
         """
       }
     }
@@ -54,7 +54,7 @@ pipeline {
     stage('Run Ansible Playbook') {
       steps {
         sh """
-        ssh ${ANSIBLE_HOST} 'ansible-playbook /home/ansible/playbooks/deploy.yml -e jar_file=/home/ansible/deployments/${JAR_NAME}'
+        ssh ${ANSIBLE_HOST} 'ansible-playbook /home/ansible/playbooks/deploy.yml -e jar_file=/home/ansibleadmin/deployments/${JAR_NAME}'
         """
       }
     }
