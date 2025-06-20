@@ -1,0 +1,19 @@
+---
+- name: Deploy JAR to production
+  hosts: production
+  become: true
+  vars:
+    dest_path: /opt/apps/
+
+  tasks:
+    - name: Copy JAR file to production server
+      copy:
+        src: "{{ jar_file }}"
+        dest: "{{ dest_path }}your-app.jar"
+        mode: '0755'
+
+    - name: Restart the application
+      systemd:
+        name: your-app
+        state: restarted
+        enabled: yes
