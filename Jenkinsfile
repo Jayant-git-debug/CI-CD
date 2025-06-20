@@ -54,7 +54,7 @@ pipeline {
     stage('Run Ansible Playbook') {
       steps {
         sh """
-        ssh ${ANSIBLE_HOST} 'ansible-playbook /home/ansible/playbooks/deploy.yml -e jar_file=/home/ansibleadmin/deployments/${JAR_NAME}'
+        ssh ${ANSIBLE_HOST} '~/.local/bin/ansible-playbook /home/ansible/playbooks/deploy.yml -e jar_file=/home/ansibleadmin/deployments/${JAR_NAME}'
         """
       }
     }
