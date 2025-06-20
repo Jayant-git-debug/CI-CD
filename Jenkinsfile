@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent { label 'master' }
 
   environment {
     MAVEN_HOST = 'jenkins@172.31.86.33'
