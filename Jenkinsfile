@@ -46,7 +46,7 @@ pipeline {
     stage('Copy .jar to Ansible Server') {
       steps {
         sh """
-        scp ${LOCAL_JAR_PATH}${JAR_NAME} ${ANSIBLE_HOST}:/home/ansible/deployments/${JAR_NAME}
+        scp ${LOCAL_JAR_PATH}${JAR_NAME} ${ANSIBLE_HOST}: /home/ansibleadmin/deployments/${JAR_NAME}
         """
       }
     }
