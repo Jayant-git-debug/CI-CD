@@ -3,11 +3,11 @@ pipeline {
 
   environment {
     MAVEN_HOST = 'jenkins@172.31.86.33'
-    ANSIBLE_HOST = 'jenkinadmin@13.235.71.158'
+    ANSIBLE_HOST = 'ansibleadmin@172.31.20.67'
     GIT_REPO = 'https://github.com/Jayant-git-debug/CI-CD.git'
     GIT_BRANCH = 'master'
     APP_DIR = '/home/maven/app'
-    JAR_NAME = 'your-app.jar'
+    JAR_NAME = 'jayant-app.jar'
     JAR_REMOTE_PATH = '/home/maven/app/target/your-app.jar'
     LOCAL_JAR_PATH = 'builds/'
   }
@@ -21,14 +21,16 @@ pipeline {
 
     stage('Trigger Maven Build on Maven Server') {
       steps {
-        sh """
-        ssh -o StrictHostKeyChecking=no ${MAVEN_HOST} '
-          rm -rf ${APP_DIR} &&
-          git clone -b ${GIT_BRANCH} ${GIT_REPO} ${APP_DIR} &&
-          cd ${APP_DIR} &&
-          mvn clean package -DskipTests
-        '
+        sshagent(['c55758a5-d427-462f-ae84-7786d7442c0c']){
+         sh """
+           ssh -o StrictHostKeyChecking=no ${MAVEN_HOST} '
+             rm -rf ${APP_DIR} &&
+             git clone -b ${GIT_BRANCH} ${GIT_REPO} ${APP_DIR} &&
+             cd ${APP_DIR} &&
+             mvn clean package -DskipTests
+           '
         """
+        }
       }
     }
 
