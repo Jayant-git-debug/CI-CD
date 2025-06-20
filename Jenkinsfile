@@ -8,7 +8,7 @@ pipeline {
     GIT_BRANCH = 'master'
     APP_DIR = '/home/maven/app'
     JAR_NAME = 'jayant-app.jar'
-    JAR_REMOTE_PATH = '/home/maven/app/target/your-app.jar'
+    JAR_REMOTE_PATH = '/home/maven/app/target/jayant-app.jar'
     LOCAL_JAR_PATH = 'builds/'
   }
 
