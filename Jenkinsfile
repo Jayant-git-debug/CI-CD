@@ -7,8 +7,8 @@ pipeline {
     GIT_REPO = 'https://github.com/Jayant-git-debug/CI-CD.git'
     GIT_BRANCH = 'master'
     APP_DIR = '/home/maven/app'
-    JAR_NAME = 'jayant-app.jar'
-    JAR_REMOTE_PATH = '/home/maven/app/target/jayant-app.jar'
+    JAR_NAME = 'test-1.0-SNAPSHOT.jar'
+    JAR_REMOTE_PATH = '/home/maven/app/target/test-1.0-SNAPSHOT.jar'
     LOCAL_JAR_PATH = 'builds/'
   }
 
