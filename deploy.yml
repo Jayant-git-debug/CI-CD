@@ -15,11 +15,11 @@
     - name: Copy JAR file to production server
       copy:
         src: "{{ jar_file }}"
-        dest: "{{ dest_path }}your-app.jar"
+        dest: "{{ dest_path }}test-1.0-SNAPSHOT.jar"
         mode: '0755'
 
     - name: Restart the application
       systemd:
-        name: your-app
+        name: myapp
         state: restarted
         enabled: yes
