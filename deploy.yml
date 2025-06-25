@@ -1,6 +1,6 @@
 ---
 - name: Deploy JAR to production
-  hosts: production
+  hosts: all
   become: true
   vars:
     dest_path: /opt/apps/
