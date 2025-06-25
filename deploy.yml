@@ -18,8 +18,4 @@
         dest: "{{ dest_path }}test-1.0-SNAPSHOT.jar"
         mode: '0755'
 
-    - name: Restart the application
-      systemd:
-        name: myapp
-        state: restarted
-        enabled: yes
+
