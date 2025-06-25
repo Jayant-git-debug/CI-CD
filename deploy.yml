@@ -6,6 +6,12 @@
     dest_path: /opt/apps/
 
   tasks:
+    - name: Ensure destination directory exists
+      file:
+        path: "{{ dest_path }}"
+        state: directory
+        mode: '0755'
+
     - name: Copy JAR file to production server
       copy:
         src: "{{ jar_file }}"
